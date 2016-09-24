@@ -1,0 +1,7 @@
+parameters:
+    freshmail_api_host:         'https://api.freshmail.com/'
+    freshmail_api_prefix:       'rest/'
+    freshmail_api_api_key:      ~
+    freshmail_api_secret_key:   ~
+
+    smtp_mailer_user: ~

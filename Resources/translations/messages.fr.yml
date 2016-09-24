@@ -1,0 +1,3 @@
+mailing.error.adapter.response: La méthode ,, envoyer «service l\'envoi de courriels devrait payer MailBundle \ Component \ réponse!
+mailing.error.adapter.interface: Service de l\'envoi de courriels devrait mettre en œuvre MailBundle \ Service \ expéditeurs \ Interfaces \ MailSenderInterface
+mailing.error.adapter: Adaptateur invalide!

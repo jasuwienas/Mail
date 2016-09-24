@@ -1,0 +1,22 @@
+{
+    "name" : "jasuwienas/mail",
+    "description" : "Integrates mailer into Symfony2 project.",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Jasuwienas Mariusz",
+        "email" : "jasuwienas@gmail.com"
+    }],
+    "keywords" : [
+        "mailer symfony2"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-4" : { "Jasuwienas\\MailBundle\\" : ""}
+    },
+    "repositories" : [{
+    }]
+}

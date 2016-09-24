@@ -1,0 +1,3 @@
+mailing.error.adapter: Podano nieprawidłowy adapter!
+mailing.error.adapter.interface: Serwis wysyłający emaile powinien implementować MailBundle\Service\Senders\Interfaces\MailSenderInterface
+mailing.error.adapter.response: Metoda ,,send'' serwisu wysyłającego emaile powinna zwracać MailBundle\Component\Response!
