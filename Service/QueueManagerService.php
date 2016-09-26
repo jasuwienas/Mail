@@ -28,7 +28,7 @@ class QueueManagerService {
      * @param DateTime|null $sendAt
      * @param string $adapter
      */
-    public function push($recipient, $title, $body, $sendAt = null, $adapter = 'freshmail') {
+    public function push($recipient, $title, $body, $sendAt = null, $adapter = 'smtp') {
         $queueElement = $this->create($recipient, $title, $body, $sendAt, $adapter);
         $this->save($queueElement);
     }
@@ -41,7 +41,7 @@ class QueueManagerService {
      * @param string $adapter
      * @return MailQueue
      */
-    public function create($recipient, $title, $body, $sendAt = null, $adapter = 'freshmail') {
+    public function create($recipient, $title, $body, $sendAt = null, $adapter = 'smtp') {
         if(!$sendAt) {
             $sendAt = new DateTime();
         }

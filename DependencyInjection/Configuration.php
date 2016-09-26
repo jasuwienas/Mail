@@ -19,7 +19,15 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('mail');
-
+        $rootNode
+            ->children()
+                ->scalarNode('smtp_user')->defaultNull()->end()
+                ->scalarNode('freshmail_api_host')->defaultNull()->end()
+                ->scalarNode('freshmail_api_prefix')->defaultNull()->end()
+                ->scalarNode('freshmail_api_api_key')->defaultNull()->end()
+                ->scalarNode('freshmail_api_secret_key')->defaultNull()->end()
+            ->end()
+        ;
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.

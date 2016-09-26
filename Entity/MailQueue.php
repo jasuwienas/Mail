@@ -109,20 +109,6 @@ class MailQueue
     private $attempts = 0;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="content_type", type="string", options={"fixed" = true}, length=32, nullable=true)
-     */
-    private $contentType;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="content_id", type="integer", options={"fixed" = true}, nullable=true)
-     */
-    private $contentId;
-
-    /**
      * Get id
      *
      * @return integer
@@ -411,53 +397,6 @@ class MailQueue
         return QueueManagerService::MAX_SENDING_ATTEMPTS - $this->attempts;
     }
 
-    /**
-     * Set content type
-     *
-     * @param string $contentType
-     *
-     * @return MailQueue
-     */
-    public function setContentType($contentType)
-    {
-        $this->contentType = $contentType;
-
-        return $this;
-    }
-
-    /**
-     * Get content type
-     *
-     * @return string
-     */
-    public function getContentType()
-    {
-        return $this->contentType;
-    }
-
-    /**
-     * Set content id
-     *
-     * @param string $contentId
-     *
-     * @return MailQueue
-     */
-    public function setContentId($contentId)
-    {
-        $this->contentId = $contentId;
-
-        return $this;
-    }
-
-    /**
-     * Get content id
-     *
-     * @return integer
-     */
-    public function getContentId()
-    {
-        return $this->contentId;
-    }
 
     public function requestNextSendingAttempt() {
         $this->attempts++;

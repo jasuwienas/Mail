@@ -30,5 +30,17 @@ class MailQueueRepository extends EntityRepository
         }
     }
 
-
+    /**
+     * @param $queryName
+     * @param null $indexBy
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function createReadyToProcessQueryBuilder($queryName, $indexBy = null) {
+        return $this->createQueryBuilder($queryName, $indexBy)
+            ->andWhere($queryName . '.status in (:status)')
+            ->andWhere($queryName . '.sendAt < :sendAt')
+            ->setParameter('status', [MailQueue::STATUS_NEW, MailQueue::STATUS_TRY_AGAIN])
+            ->setParameter('sendAt', new DateTime())
+            ;
+    }
 }

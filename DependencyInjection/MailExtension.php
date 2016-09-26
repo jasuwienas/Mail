@@ -23,7 +23,10 @@ class MailExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('parameters.yml');
+        foreach($config as $key => $parameter) {
+            $container->setParameter('mail.'.$key, $parameter);
+        }
         $loader->load('services.yml');
     }
+
 }
