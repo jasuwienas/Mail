@@ -34,21 +34,21 @@ class MailQueue
     /**
      * @var string
      *
-     * @ORM\Column(name="adapter", type="string", options={"fixed" = true}, length=32, nullable=true)
+     * @ORM\Column(name="adapter", type="string", length=32, nullable=true)
      */
     private $adapter;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="recipient", type="string", options={"fixed" = true}, length=255, nullable=true)
+     * @ORM\Column(name="recipient", type="string", length=255, nullable=true)
      */
     private $recipient;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", options={"fixed" = true}, length=255, nullable=true)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
@@ -76,7 +76,7 @@ class MailQueue
     /**
      * @var string
      *
-     * @ORM\Column(name="error", type="string", options={"fixed" = true}, length=255, nullable=true)
+     * @ORM\Column(name="error", type="string", length=255, nullable=true)
      */
     private $error;
 
