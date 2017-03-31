@@ -9,6 +9,10 @@ class QueueManagerService {
 
     const MAX_SENDING_ATTEMPTS = 5;
 
+    const PRIORITY_HIGH = 99;
+    const PRIORITY_NORMAL = 0;
+    const PRIORITY_LOW = -99;
+
     /**
      * @var EntityManager $entityManager
      */
@@ -28,8 +32,8 @@ class QueueManagerService {
      * @param DateTime|null $sendAt
      * @param string $adapter
      */
-    public function push($recipient, $title, $body, $sendAt = null, $adapter = 'smtp') {
-        $queueElement = $this->create($recipient, $title, $body, $sendAt, $adapter);
+    public function push($recipient, $title, $body, $sendAt = null, $adapter = 'smtp', $priority = 0) {
+        $queueElement = $this->create($recipient, $title, $body, $sendAt, $adapter, $priority);
         $this->save($queueElement);
     }
 
@@ -41,13 +45,14 @@ class QueueManagerService {
      * @param string $adapter
      * @return MailQueue
      */
-    public function create($recipient, $title, $body, $sendAt = null, $adapter = 'smtp') {
+    public function create($recipient, $title, $body, $sendAt = null, $adapter = 'smtp', $priority = 0) {
         if(!$sendAt) {
             $sendAt = new DateTime();
         }
         $queueElement = new MailQueue();
         $queueElement
             ->setAdapter(strtolower($adapter))
+            ->setPriority($priority)
             ->setRecipient($recipient)
             ->setTitle($title)
             ->setBody($body)
