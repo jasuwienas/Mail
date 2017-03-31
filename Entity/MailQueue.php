@@ -39,6 +39,13 @@ class MailQueue
     private $adapter;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="priority", type="integer", nullable=false, options={"default": 0})
+     */
+    private $priority;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="recipient", type="string", length=255, nullable=true)
@@ -140,6 +147,30 @@ class MailQueue
     public function getAdapter()
     {
         return $this->adapter;
+    }
+
+    /**
+     * Set priority
+     *
+     * @param string $priority
+     *
+     * @return MailQueue
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Get priority
+     *
+     * @return integer
+     */
+    public function getPriority()
+    {
+        return $this->priority;
     }
 
     /**
